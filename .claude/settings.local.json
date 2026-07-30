@@ -1,7 +1,14 @@
 {
   "sandbox": {
     "network": {
-      "allowedDomains": ["api.x.ai"]
+      "allowedDomains": [
+        "api.x.ai"
+      ]
     }
+  },
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Code_Remote__send_later"
+    ]
   }
 }
