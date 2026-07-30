@@ -19,7 +19,7 @@ import json
 import time
 import requests
 
-API_KEY = os.environ.get("GROK_API_KEY")
+API_KEY = xai-I3QsgfHFVHxy7fePvp0ER4dgWqpiTrPTIqmBuWBlgR9XrMk9h6Paf0280kJoM2utRQ8GyVHx8TZf0CW9
 if not API_KEY:
     raise SystemExit(
         "環境変数 GROK_API_KEY が設定されていません。\n"
