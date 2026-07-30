@@ -4,14 +4,15 @@ Xに投稿している「生の声」を集め、sns-customer-voices.md に書�
 
 事前準備：
 1. https://console.x.ai でAPIキーを取得する
-2. ターミナルで以下を実行してから、このスクリプトと同じターミナルで実行する
-   export GROK_API_KEY="ここに取得したAPIキー"
-   ※APIキーはチャットやコードに直接書き込まないこと
-3. 必要なライブラリをインストール
+2. このスクリプトと同じフォルダに .env というファイルを作り、
+   中に GROK_API_KEY=ここに取得したAPIキー という行を1行書いて保存する
+   ※APIキーはClaude Codeとのチャットには直接貼らないこと
+3. 必要なライブラリをインストール（Claude Codeに「requestsをインストールして」と頼んでもよい）
    pip install requests --break-system-packages
 
 実行方法：
-   python3 collect_sns_voices.py
+   Claude Code（デスクトップアプリ）で「collect_sns_voices.pyを実行してください」と頼む
+   もしくはターミナルがあれば python3 collect_sns_voices.py
 """
 
 import os
@@ -19,12 +20,36 @@ import json
 import time
 import requests
 
+
+def load_dotenv_if_needed():
+    """GROK_API_KEYが環境変数に無い場合、同じフォルダの .env ファイルから読み込む。
+    Claude Code デスクトップアプリ経由の実行では、ターミナルで export した
+    環境変数が引き継がれないことがあるための対応。"""
+    if os.environ.get("GROK_API_KEY"):
+        return
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.exists(env_path):
+        return
+    with open(env_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
+load_dotenv_if_needed()
+
 API_KEY = os.environ.get("GROK_API_KEY")
 if not API_KEY:
     raise SystemExit(
-        "環境変数 GROK_API_KEY が設定されていません。\n"
-        "ターミナルで export GROK_API_KEY=\"あなたのキー\" を実行してから、\n"
-        "もう一度このスクリプトを実行してください。"
+        "GROK_API_KEY が見つかりません。\n"
+        "このスクリプトと同じフォルダに .env というファイルを作り、\n"
+        "中に GROK_API_KEY=あなたのキー という行を1行書いて保存してください。"
     )
 
 URL = "https://api.x.ai/v1/responses"
