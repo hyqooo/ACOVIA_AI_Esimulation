@@ -84,4 +84,4 @@ Gate⑤（流通・支払者）に直結する。候補は、本人／医療機�
 | `../CLAUDE.md` | 会社の憲法。3つの会社像・Baseケースの数字・専業化ライン（年収800〜1,000万円）・失敗パターン12種 |
 | `../ORGANIZATION.md` | 組織図 |
 | `web-customer-voices.md` | 顧客の生の声（配置後）。この部署が保有する一次資料 |
-| `../keiei-simulation-brief.md` | 財務三表（PL／BS／CF）の作成指示 |
+| `../secretary/keiei-simulation-brief.md` | 財務三表（PL／BS／CF）の作成指示 |

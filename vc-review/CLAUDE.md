@@ -84,4 +84,4 @@ ACOVIAは「まず不妊治療領域で証明し、その結果がVC型成長を
 | `../CLAUDE.md` | 会社の憲法。3つの会社像・暫定VC判断・失敗パターン12種・やらないこと |
 | `../ORGANIZATION.md` | 組織図 |
 | `../cfo-cmo/web-customer-voices.md` | 顧客の生の声（配置後）。**裏付けとしてではなく、反証材料として読む** |
-| `../keiei-simulation-brief.md` | 経営シミュレーションの進め方 |
+| `../secretary/keiei-simulation-brief.md` | 経営シミュレーションの進め方 |

@@ -67,4 +67,4 @@ Decision Guide System → Decision OS → Decision Platform というロード�
 | `../CLAUDE.md` | 会社の憲法。MVV・2仮説・ロードマップ・やらないこと・失敗パターン12種 |
 | `../ORGANIZATION.md` | 組織図 |
 | `../cfo-cmo/web-customer-voices.md` | 顧客の生の声（配置後） |
-| `../keiei-simulation-brief.md` | 経営シミュレーションの進め方 |
+| `../secretary/keiei-simulation-brief.md` | 経営シミュレーションの進め方 |

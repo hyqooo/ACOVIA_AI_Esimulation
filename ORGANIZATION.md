@@ -65,17 +65,18 @@ ACOVIA_AI_Esimulation/
 ├─ CLAUDE.md                    会社の憲法（ACOVIAの現状。書き換えない）
 ├─ ORGANIZATION.md              このファイル
 ├─ company-build-brief.md       会社構築の依頼書
-├─ keiei-simulation-brief.md    経営シミュレーションの依頼書
-├─ web-customer-voices.md       顧客の生の声（Web収集）
 ├─ secretary/
 │   ├─ CLAUDE.md
+│   ├─ keiei-simulation-brief.md  経営シミュレーションの依頼書（進行管理の対象）
 │   ├─ todo/                    タスク台帳
 │   ├─ diary/                   日々の記録
 │   ├─ minutes/                 議事録
 │   └─ decisions/               意思決定ログ（1件＝1決定）
 ├─ ceo-cpo/CLAUDE.md
 ├─ coo-chro/CLAUDE.md
-├─ cfo-cmo/CLAUDE.md
+├─ cfo-cmo/
+│   ├─ CLAUDE.md
+│   └─ web-customer-voices.md   顧客の生の声（この部署が保有する一次資料）
 ├─ legal-impact/CLAUDE.md
 └─ vc-review/CLAUDE.md
 ```
@@ -112,9 +113,9 @@ ACOVIA_AI_Esimulation/
 
 ## 8. この後の流れ
 
-1. `web-customer-voices.md` を `cfo-cmo/` へ配置（顧客の言葉の一次資料として保有）
-2. `keiei-simulation-brief.md` を `secretary/` へ配置（進行管理の対象として保有）
-3. この組織構造を使って、`keiei-simulation-brief.md` の経営シミュレーション（シナリオA〜D、経営会議ログ、財務三表、学習ループ）を実行する。発言者は決め打ちの担当ではなく、ここで定義した6部署を使う
+1. ✅ `web-customer-voices.md` を `cfo-cmo/` へ配置（顧客の言葉の一次資料として保有）
+2. ✅ `keiei-simulation-brief.md` を `secretary/` へ配置（進行管理の対象として保有）
+3. ✅ この組織構造を使って、経営シミュレーション（シナリオA〜D、経営会議ログ、財務三表、学習ループ）を実行。発言者は決め打ちの担当ではなく、ここで定義した6部署を使用した。成果物はNotionの親ページ配下
 
 ## 9. Notion側の記録
 

@@ -70,7 +70,7 @@ ACOVIAは現在、性質の異なる2つの事業仮説（意思決定伴走型�
 |---|---|
 | `../CLAUDE.md` | 会社の憲法。ACOVIAの現状・2仮説・失敗パターン12種 |
 | `../ORGANIZATION.md` | 組織図・部署の役割 |
-| `../keiei-simulation-brief.md` | 経営シミュレーションの進め方（進行管理の対象） |
+| `keiei-simulation-brief.md` | 経営シミュレーションの進め方（進行管理の対象） |
 | `todo/` | タスク台帳 |
 | `diary/` | 日々の記録 |
 | `minutes/` | 議事録 |
