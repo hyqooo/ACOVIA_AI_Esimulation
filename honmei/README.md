@@ -25,6 +25,7 @@
 | 11 | [`11-failure-patterns.md`](11-failure-patterns.md) | 失敗パターン13種の予防策と、実際に起きかけた記録 ＋ **14番目（2026-08-04 追加登録）** |
 | 12 | [`12-vc-what-breaks-first.md`](12-vc-what-breaks-first.md) | `vc-review/`「この案が間違っているとしたら、どこが最初に壊れるか」 |
 | 13 | **[`13-reality-check.md`](13-reality-check.md)** | **現実のACOVIAとの全文照合（2026-08-04）。** 直接ぶつかる5点／現実側が先に到達していた13件／未決の経営判断2件 |
+| 14 | **[`14-supporter-voices.md`](14-supporter-voices.md)** | **臨時経営会議｜サポーター協力説明会2件（実際の当事者の声）から何を採るか。** 証拠強度E0〜E4を初めて適用。決定 I-1〜I-27 |
 
 ---
 
