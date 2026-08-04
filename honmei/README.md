@@ -24,6 +24,7 @@
 | 10 | [`10-decisions.md`](10-decisions.md) | 意思決定ログ |
 | 11 | [`11-failure-patterns.md`](11-failure-patterns.md) | 失敗パターン13種の予防策と、実際に起きかけた記録 |
 | 12 | [`12-vc-what-breaks-first.md`](12-vc-what-breaks-first.md) | `vc-review/`「この案が間違っているとしたら、どこが最初に壊れるか」 |
+| 13 | [`13-structure-review.md`](13-structure-review.md) | **構造レビュー。** 6つの問い（既存役割の前提／二項対立の固定／価値の一方向性／市場の再定義／ネットワーク効果／10年後の強度）で、**枠そのものを疑う**。組み替え案21件 |
 
 ---
 
