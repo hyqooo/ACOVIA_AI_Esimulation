@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACOVIA｜傾聴セッションのご予約</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --ink: #3d3733;
+    --sub: #6f675f;
+    --accent: #4a7c6f;
+    --accent-dark: #3a6459;
+    --line: #e5ddd3;
+    --danger-bg: #fdf1ec;
+    --danger-line: #e8c4b0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 24px 16px 64px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header { margin-bottom: 24px; }
+  .brand { font-size: 13px; letter-spacing: .2em; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 22px; font-weight: 600; margin-top: 4px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .intro p { margin-bottom: 10px; font-size: 14.5px; }
+  .intro p:last-child { margin-bottom: 0; }
+  .notice {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-line);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .notice strong { display: block; margin-bottom: 6px; }
+  .notice ul { list-style: none; }
+  .notice li { margin-top: 2px; }
+  fieldset { border: none; margin-bottom: 4px; }
+  .q { margin-bottom: 22px; }
+  .q:last-child { margin-bottom: 0; }
+  label.qtitle, .qtitle { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .req { color: #b0552e; font-size: 12px; font-weight: 600; margin-left: 6px; }
+  .opt { color: var(--sub); font-size: 12px; font-weight: 600; margin-left: 6px; }
+  .hint { font-size: 13px; color: var(--sub); margin-bottom: 8px; }
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 15px;
+    background: #fffdfb;
+  }
+  input[type="text"]:focus, textarea:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  textarea { min-height: 84px; resize: vertical; }
+  .choice { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; cursor: pointer; font-size: 15px; }
+  .choice input { margin-top: 6px; flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--accent); }
+  .wish { margin-bottom: 8px; }
+  .wish span { display: block; font-size: 13px; color: var(--sub); margin-bottom: 2px; }
+  .consent .choice { border-bottom: 1px dashed var(--line); padding: 10px 0; font-size: 14px; }
+  .consent .choice:last-child { border-bottom: none; }
+  button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { background: var(--accent-dark); }
+  button.secondary { background: #fff; color: var(--accent); border: 1px solid var(--accent); margin-top: 10px; }
+  .error { color: #b0552e; font-size: 13px; margin-top: 4px; display: none; }
+  .price-line { font-size: 14.5px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
+  #result { display: none; }
+  #resultText {
+    width: 100%;
+    min-height: 260px;
+    white-space: pre-wrap;
+    font: inherit;
+    font-size: 14px;
+    background: #fffdfb;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .copied { color: var(--accent); font-size: 13px; margin-top: 8px; text-align: center; display: none; }
+  footer { font-size: 12px; color: var(--sub); text-align: center; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">ACOVIA</div>
+    <h1>傾聴セッションのご予約</h1>
+  </header>
+
+  <div class="card intro">
+    <p>不妊治療を経験した対話パートナーが、カメラなしの音声で、あなたのお話をお聞きします。</p>
+    <p>医療相談・心理療法・カウンセリング・意思決定支援ではありません。治療方針・病院・薬・検査などへの助言は行いません。</p>
+    <p id="phaseLine"></p>
+  </div>
+
+  <div class="notice">
+    <strong>このフォームは緊急のご相談窓口ではありません。</strong>
+    ご自身や身近な方の安全に差し迫った心配があるときは、次にご連絡ください。
+    <ul>
+      <li>・救急・消防 <strong style="display:inline">119</strong>／事件・事故 <strong style="display:inline">110</strong></li>
+      <li>・こころの健康相談統一ダイヤル <strong style="display:inline">0570-064-556</strong>（お住まいの地域の公的相談機関につながります）</li>
+    </ul>
+  </div>
+
+  <form id="bookingForm" novalidate>
+    <div class="card">
+      <div class="q">
+        <label class="qtitle" for="name">お呼びする名前<span class="req">必須</span></label>
+        <p class="hint">ニックネームで構いません。本名は不要です。</p>
+        <input type="text" id="name" autocomplete="off">
+        <p class="error" id="err-name">お呼びする名前をご記入ください。</p>
+      </div>
+
+      <div class="q">
+        <label class="qtitle" for="contact">ご連絡先（1つだけ）<span class="req">必須</span></label>
+        <p class="hint">日程のご連絡に使います。メールアドレス、またはLINEでつながっている方は「LINEで」とご記入ください。</p>
+        <input type="text" id="contact" autocomplete="off">
+        <p class="error" id="err-contact">ご連絡先をご記入ください。</p>
+      </div>
+
+      <fieldset class="q">
+        <span class="qtitle">今回のご利用は<span class="req">必須</span></span>
+        <label class="choice"><input type="radio" name="type" value="はじめて（30〜45分）">はじめて（30〜45分）</label>
+        <label class="choice"><input type="radio" name="type" value="2回目以降（15分単位）">2回目以降（15分単位）</label>
+        <p class="error" id="err-type">どちらかをお選びください。</p>
+      </fieldset>
+
+      <fieldset class="q" id="lengthBlock" style="display:none">
+        <span class="qtitle">（2回目以降の方）ご希望の長さ</span>
+        <label class="choice"><input type="radio" name="length" value="15分">15分</label>
+        <label class="choice"><input type="radio" name="length" value="30分">30分</label>
+        <label class="choice"><input type="radio" name="length" value="45分">45分</label>
+      </fieldset>
+
+      <div class="q">
+        <span class="qtitle">ご希望の日時<span class="req">第1希望のみ必須</span></span>
+        <p class="hint">例：8月28日（木）20時以降。時間帯の幅でご記入いただいて構いません。</p>
+        <div class="wish"><span>第1希望</span><input type="text" id="wish1" autocomplete="off"></div>
+        <div class="wish"><span>第2希望</span><input type="text" id="wish2" autocomplete="off"></div>
+        <div class="wish"><span>第3希望</span><input type="text" id="wish3" autocomplete="off"></div>
+        <p class="error" id="err-wish1">第1希望をご記入ください。</p>
+      </div>
+
+      <div class="q">
+        <label class="qtitle" for="note">お話ししたいことがあれば、ひとことだけ<span class="opt">任意</span></label>
+        <p class="hint">書かなくて構いません。詳しい経緯や治療の内容は、ここに書く必要はありません。</p>
+        <textarea id="note"></textarea>
+      </div>
+    </div>
+
+    <div class="card consent">
+      <span class="qtitle">確認事項（4点すべてにチェックをお願いします）<span class="req">必須</span></span>
+      <label class="choice"><input type="checkbox" name="consent" value="1"><span>目的を理解しました：経験者がお話を<strong>お聞きする</strong>時間であり、医療相談・カウンセリング・意思決定支援ではないこと</span></label>
+      <label class="choice"><input type="checkbox" name="consent" value="2">医療に関する助言（治療方針・病院・薬・検査など）は行われないことを理解しました</label>
+      <label class="choice"><input type="checkbox" name="consent" value="3">情報の取扱いを理解しました：予約時にいただくのは呼び名と連絡先のみで、セッションでは品質・安全・運営上の記録だけが残り、会話の全文は記録されないこと</label>
+      <label class="choice"><input type="checkbox" name="consent" value="4">自分の意思で申し込みます。話したくないことは話さなくてよく、途中で休憩・中断・終了でき、参加しなくても不利益がないことを理解しました</label>
+      <p class="error" id="err-consent">4点すべてのご確認をお願いします。</p>
+      <p class="price-line" id="priceLine" style="display:none"></p>
+    </div>
+
+    <button type="submit">申込内容を確認する</button>
+  </form>
+
+  <div class="card" id="result">
+    <span class="qtitle">申込文面ができました</span>
+    <p class="hint">下の文面をコピーして、ご案内を受け取った連絡先（LINE・メール）へそのまま送ってください。24時間以内を目安にお返事します。</p>
+    <textarea id="resultText" readonly></textarea>
+    <button type="button" id="copyBtn" style="margin-top:12px">文面をコピーする</button>
+    <button type="button" class="secondary" id="backBtn">入力に戻る</button>
+    <p class="copied" id="copiedMsg">コピーしました。</p>
+  </div>
+
+  <footer>ACOVIA｜誰もが、人生の難しい選択を、自分で納得して選べる世界をつくる</footer>
+</div>
+
+<script>
+/* ============================================================
+   運用設定（ここだけ書き換えれば切り替わります）
+   phase: "free"（無償期）／"paid"（有償期）
+   priceText: 有償期の料金表示。料金が正式に決まるまで書き換えないこと
+   ============================================================ */
+const CONFIG = {
+  phase: "free",
+  priceText: "料金とお支払い方法は、日程のご連絡の際にお伝えします。"
+};
+
+const phaseLine = document.getElementById("phaseLine");
+const priceLine = document.getElementById("priceLine");
+if (CONFIG.phase === "free") {
+  phaseLine.textContent = "現在は無料でご案内しています。";
+} else {
+  phaseLine.textContent = CONFIG.priceText;
+  priceLine.textContent = CONFIG.priceText;
+  priceLine.style.display = "block";
+}
+
+document.querySelectorAll('input[name="type"]').forEach(function (r) {
+  r.addEventListener("change", function () {
+    document.getElementById("lengthBlock").style.display =
+      r.value.indexOf("2回目以降") === 0 && r.checked ? "block" : "none";
+  });
+});
+
+function showError(id, show) {
+  document.getElementById(id).style.display = show ? "block" : "none";
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const type = document.querySelector('input[name="type"]:checked');
+  const wish1 = document.getElementById("wish1").value.trim();
+  const consents = document.querySelectorAll('input[name="consent"]:checked');
+
+  let ok = true;
+  showError("err-name", !name); if (!name) ok = false;
+  showError("err-contact", !contact); if (!contact) ok = false;
+  showError("err-type", !type); if (!type) ok = false;
+  showError("err-wish1", !wish1); if (!wish1) ok = false;
+  showError("err-consent", consents.length < 4); if (consents.length < 4) ok = false;
+  if (!ok) {
+    const firstErr = document.querySelector('.error[style*="block"]');
+    if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const wish2 = document.getElementById("wish2").value.trim();
+  const wish3 = document.getElementById("wish3").value.trim();
+  const length = document.querySelector('input[name="length"]:checked');
+  const note = document.getElementById("note").value.trim();
+
+  const lines = [];
+  lines.push("【ACOVIA 傾聴セッション 予約申込】");
+  lines.push("お呼びする名前：" + name);
+  lines.push("ご連絡先：" + contact);
+  lines.push("ご利用：" + type.value + (length ? "・希望 " + length.value : ""));
+  lines.push("第1希望：" + wish1);
+  if (wish2) lines.push("第2希望：" + wish2);
+  if (wish3) lines.push("第3希望：" + wish3);
+  if (note) lines.push("ひとこと：" + note);
+  lines.push("確認事項：4点すべて確認しました");
+
+  document.getElementById("resultText").value = lines.join("\n");
+  document.getElementById("bookingForm").style.display = "none";
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+document.getElementById("copyBtn").addEventListener("click", function () {
+  const ta = document.getElementById("resultText");
+  ta.select();
+  ta.setSelectionRange(0, 99999);
+  let done = false;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(ta.value).then(function () {
+      document.getElementById("copiedMsg").style.display = "block";
+    });
+    done = true;
+  }
+  if (!done) {
+    try { document.execCommand("copy"); document.getElementById("copiedMsg").style.display = "block"; } catch (err) {}
+  }
+});
+
+document.getElementById("backBtn").addEventListener("click", function () {
+  document.getElementById("result").style.display = "none";
+  document.getElementById("copiedMsg").style.display = "none";
+  document.getElementById("bookingForm").style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+</body>
+</html>
